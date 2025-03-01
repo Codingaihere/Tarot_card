@@ -79,7 +79,7 @@ function getTarotReading(question, cards) {
     headers: {
       "Content-Type": "application/json",
       // Replace with your actual HuggingFace API key if needed
-      "Authorization": "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"
+      "Authorization": "Bearer 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"
     },
     body: JSON.stringify({ inputs: prompt })
   })

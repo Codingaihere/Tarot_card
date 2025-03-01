@@ -1,5 +1,4 @@
 
-
 /* script.js */
 
 // Tarot deck array with sample cards.
@@ -65,7 +64,7 @@ function displayCards(cards) {
 }
 
 // Combines the user's question and the drawn cards into a prompt,
-// then calls the Hugging Face Inference API using StableLM tuned model
+// then calls the Hugging Face Inference API using Falcon‑7B‑Instruct
 // to generate an insightful, mystical interpretation.
 function getTarotReading(question, cards, retryCount = 0) {
   const cardNames = cards.map(card => card.name).join(', ');
@@ -75,7 +74,7 @@ function getTarotReading(question, cards, retryCount = 0) {
   resultDiv.innerText = "The mystical energies are converging... Please wait.";
   resultDiv.classList.remove('hidden');
 
-  fetch("https://api-inference.huggingface.co/models/stabilityai/stablelm-tuned-alpha-7b", {
+  fetch("https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 
+
 /* script.js */
 
 // Tarot deck array with sample cards.
@@ -64,7 +65,7 @@ function displayCards(cards) {
 }
 
 // Combines the user's question and the drawn cards into a prompt,
-// then calls the Hugging Face Inference API using Llama‑2‑7B‑Chat model
+// then calls the Hugging Face Inference API using StableLM tuned model
 // to generate an insightful, mystical interpretation.
 function getTarotReading(question, cards, retryCount = 0) {
   const cardNames = cards.map(card => card.name).join(', ');
@@ -74,7 +75,7 @@ function getTarotReading(question, cards, retryCount = 0) {
   resultDiv.innerText = "The mystical energies are converging... Please wait.";
   resultDiv.classList.remove('hidden');
 
-  fetch("https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf", {
+  fetch("https://api-inference.huggingface.co/models/stabilityai/stablelm-tuned-alpha-7b", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -108,3 +109,4 @@ function getTarotReading(question, cards, retryCount = 0) {
     resultDiv.innerText = "An error occurred while consulting the mystical forces.";
   });
 }
+

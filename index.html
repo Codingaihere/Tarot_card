@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarot Insight</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Tarot Insight</h1>
+      <p>Ask your question and let the tarot guide you.</p>
+    </header>
+    
+    <section class="input-section">
+      <input type="text" id="questionInput" placeholder="Enter your question here...">
+      <button id="submitBtn">Reveal My Reading</button>
+    </section>
+    
+    <section class="cards-section">
+      <!-- Cards will be inserted here -->
+      <div class="card-container" id="cardContainer">
+        <!-- Three cards for a simple past-present-future spread -->
+      </div>
+    </section>
+    
+    <section class="result-section">
+      <h2>Your Tarot Reading</h2>
+      <div id="readingOutput"></div>
+    </section>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

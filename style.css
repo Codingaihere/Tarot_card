@@ -1,0 +1,125 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container and Layout */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ece9e6, #ffffff);
+  color: #333;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 2.5em;
+}
+
+.input-section {
+  margin: 20px 0;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 60%;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 1em;
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5753d1;
+}
+
+/* Cards Section */
+.cards-section {
+  margin: 30px 0;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.card {
+  width: 120px;
+  height: 180px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  cursor: pointer;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+/* Card faces */
+.card .front, .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+.card .front {
+  background: #6c63ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.card .back {
+  background: #fff;
+  transform: rotateY(180deg);
+  padding: 10px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+/* Result Section */
+.result-section {
+  margin-top: 30px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Simple animation for card appearance */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  animation: slideIn 0.5s ease-in-out;
+}

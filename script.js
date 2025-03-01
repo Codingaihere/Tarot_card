@@ -3,16 +3,16 @@
 // Tarot deck array with sample cards.
 // Make sure to add corresponding images in the "cards" folder.
 const tarotDeck = [
-  { name: "The Fool", image: "cards/the_fool.jpg", description: "New beginnings, spontaneity, and a leap of faith." },
-  { name: "The Magician", image: "cards/the_magician.jpg", description: "Manifestation, resourcefulness, and power." },
-  { name: "The High Priestess", image: "cards/the_high_priestess.jpg", description: "Mystery, intuition, and inner wisdom." },
-  { name: "The Empress", image: "cards/the_empress.jpg", description: "Nurturing, abundance, and creativity." },
-  { name: "The Emperor", image: "cards/the_emperor.jpg", description: "Authority, structure, and control." },
-  { name: "The Hierophant", image: "cards/the_hierophant.jpg", description: "Tradition, spirituality, and guidance." },
-  { name: "The Lovers", image: "cards/the_lovers.jpg", description: "Love, harmony, and choices." },
-  { name: "The Chariot", image: "cards/the_chariot.jpg", description: "Willpower, victory, and determination." },
-  { name: "Strength", image: "cards/strength.jpg", description: "Courage, inner strength, and resilience." },
-  { name: "The Hermit", image: "cards/the_hermit.jpg", description: "Introspection, solitude, and wisdom." }
+  { name: "The Fool", image: "cards/the_fool.jpeg", description: "New beginnings, spontaneity, and a leap of faith." },
+  { name: "The Magician", image: "cards/the_magician.jpeg", description: "Manifestation, resourcefulness, and power." },
+  { name: "The High Priestess", image: "cards/the_high_priestess.jpeg", description: "Mystery, intuition, and inner wisdom." },
+  { name: "The Empress", image: "cards/the_empress.jpeg", description: "Nurturing, abundance, and creativity." },
+  { name: "The Emperor", image: "cards/the_emperor.jpeg", description: "Authority, structure, and control." },
+  { name: "The Hierophant", image: "cards/the_hierophant.jpeg", description: "Tradition, spirituality, and guidance." },
+  { name: "The Lovers", image: "cards/the_lovers.jpeg", description: "Love, harmony, and choices." },
+  { name: "The Chariot", image: "cards/the_chariot.jpeg", description: "Willpower, victory, and determination." },
+  { name: "Strength", image: "cards/strength.jpeg", description: "Courage, inner strength, and resilience." },
+  { name: "The Hermit", image: "cards/the_hermit.jpeg", description: "Introspection, solitude, and wisdom." }
 ];
 
 document.getElementById('tarot-form').addEventListener('submit', function(e) {

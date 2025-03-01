@@ -1,7 +1,8 @@
+
 /* script.js */
 
 // Tarot deck array with sample cards.
-// Make sure to add corresponding images in the "cards" folder.
+// Ensure your images are in the "cards" folder with correct names.
 const tarotDeck = [
   { name: "The Fool", image: "cards/the_fool.jpeg", description: "New beginnings, spontaneity, and a leap of faith." },
   { name: "The Magician", image: "cards/the_magician.jpeg", description: "Manifestation, resourcefulness, and power." },
@@ -63,31 +64,40 @@ function displayCards(cards) {
 }
 
 // Combines the user's question and the drawn cards into a prompt,
-// then calls a free LLM (via the HuggingFace Inference API) to generate an interpretation.
-function getTarotReading(question, cards) {
+// then calls the Hugging Face Inference API using Llama‑2‑7B‑Chat model
+// to generate an insightful, mystical interpretation.
+function getTarotReading(question, cards, retryCount = 0) {
   const cardNames = cards.map(card => card.name).join(', ');
   const prompt = `You are a mystical tarot reader. A user asked: "${question}". The tarot cards drawn are: ${cardNames}. Provide an insightful, mystical interpretation that connects these cards to the question.`;
 
-  // Show a loading message
   const resultDiv = document.getElementById('result');
   resultDiv.innerText = "The mystical energies are converging... Please wait.";
   resultDiv.classList.remove('hidden');
 
-  // Call the HuggingFace Inference API using a free model (e.g., distilgpt2)
-  fetch("https://api-inference.huggingface.co/models/distilgpt2", {
+  fetch("https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-chat-hf", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      // Replace with your actual HuggingFace API key if needed
       "Authorization": "Bearer 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"
     },
     body: JSON.stringify({ inputs: prompt })
   })
-  .then(response => response.json())
+  .then(response => {
+    if (response.status === 503 && retryCount < 3) {
+      // Retry if service is temporarily unavailable
+      setTimeout(() => getTarotReading(question, cards, retryCount + 1), 3000);
+      return;
+    }
+    return response.json();
+  })
   .then(data => {
+    if (!data) return;
+    console.log("API Response:", data);
     let generatedText = "";
-    if (data && data[0] && data[0].generated_text) {
+    if (Array.isArray(data) && data[0] && data[0].generated_text) {
       generatedText = data[0].generated_text;
+    } else if (data.error) {
+      generatedText = `Error: ${data.error}`;
     } else {
       generatedText = "The mystical energies are quiet today. Try again later.";
     }

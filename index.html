@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarot Reading</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts for an elegant look -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Tarot Reading</h1>
+    <div id="tarot-form-container">
+      <form id="tarot-form">
+        <label for="question">Ask your question:</label>
+        <textarea id="question" placeholder="Type your question here..." required></textarea>
+        <button type="submit">Reveal Your Cards</button>
+      </form>
+    </div>
+    <div id="card-container" class="card-container hidden">
+      <!-- Cards will be dynamically inserted here -->
+    </div>
+    <div id="result" class="result hidden">
+      <!-- The mystical interpretation will appear here -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

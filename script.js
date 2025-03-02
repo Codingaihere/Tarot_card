@@ -28,7 +28,7 @@ document.getElementById('tarot-form').addEventListener('submit', function(e) {
   const selectedCards = getRandomCards(3);
   displayCards(selectedCards);
 
-  // After a short delay to allow the animation, call the LLM to get the interpretation
+  // After a short delay to allow the animation, call the Gemini Flash 2.0 API for an interpretation
   setTimeout(() => {
     getTarotReading(question, selectedCards);
   }, 1500);
@@ -64,8 +64,7 @@ function displayCards(cards) {
 }
 
 // Combines the user's question and the drawn cards into a prompt,
-// then calls the Hugging Face Inference API using Falcon‑7B‑Instruct
-// to generate an insightful, mystical interpretation.
+// then calls the Gemini Flash 2.0 API to generate an insightful, mystical interpretation.
 function getTarotReading(question, cards, retryCount = 0) {
   const cardNames = cards.map(card => card.name).join(', ');
   const prompt = `You are a mystical tarot reader. A user asked: "${question}". The tarot cards drawn are: ${cardNames}. Provide an insightful, mystical interpretation that connects these cards to the question.`;
@@ -74,7 +73,7 @@ function getTarotReading(question, cards, retryCount = 0) {
   resultDiv.innerText = "The mystical energies are converging... Please wait.";
   resultDiv.classList.remove('hidden');
 
-  fetch("https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct", {
+  fetch("https://api-inference.huggingface.co/models/google/gemini-flash-2.0", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

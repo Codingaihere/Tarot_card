@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #1c1c3c, #2b2b5f);
+  background: linear-gradient(135deg, #000000, #333300);
   color: #fff;
 }
 
@@ -16,6 +16,7 @@ body {
 
 h1 {
   margin-bottom: 20px;
+  color: #d4af37; /* gold */
 }
 
 form {
@@ -37,14 +38,14 @@ button {
   font-size: 18px;
   border: none;
   border-radius: 5px;
-  background-color: #ff6f61;
-  color: #fff;
+  background-color: #d4af37; /* gold */
+  color: #000;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #ff3b2e;
+  background-color: #b5972c;
 }
 
 .card-container {
@@ -91,10 +92,11 @@ button:hover {
 }
 
 .result {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
   font-size: 18px;
   line-height: 1.5;
   min-height: 100px;
+  border: 2px solid #d4af37;
 }
